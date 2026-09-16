@@ -189,6 +189,16 @@
   <footer>GENIDEIA</footer>
 </div>
 
+<script>
+  (function(){
+    var t = new URLSearchParams(location.search).get('t');
+    if(!t) return;
+    var iframe = document.getElementById('yt-player');
+    iframe.src = iframe.src + '&start=' + encodeURIComponent(t);
+    var btn = document.querySelector('.chap[data-t="' + t + '"]');
+    if(btn) btn.classList.add('active');
+  })();
+</script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
   var ytPlayer;
